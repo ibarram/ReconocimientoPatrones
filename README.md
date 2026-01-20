@@ -150,7 +150,7 @@ Las presentaciones de la Unidad de Aprendizaje estarán disponibles para su desc
 |Archivo|Descripción|Enlace|
 |---|---|---|
 |0_Presentacion.pdf|Presentación de la Unidad de Aprendizaje|[Download](/doc/slide/0_Presentacion.pdf)|
-|1_Intro_R.pptx|Introducción a R (estudiantes sin experiencia)|[Download](/doc/slide/1_Intro_R.pptx)|
+|1_Intro_R.pptx|Introducción a R (estudiantes sin experiencia)|[Download](/doc/slide/1_Intro_R.pdf)|
 |2_Pipeline.pdf|Pipeline de RP y diseño experimental|[Download](/doc/slide/2_Pipeline.pdf)|
 |3_Bayes.pdf|Fundamentos Bayesianos y decisión estadística|[Download](/doc/slide/3_Bayes.pdf)|
 |4_Features_PCA.pdf|Features, selección y PCA|[Download](/doc/slide/4_Features_PCA.pdf)|
