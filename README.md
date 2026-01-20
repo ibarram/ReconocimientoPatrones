@@ -48,21 +48,17 @@
 
 ### Competencia de la UDA (resumen)
 
-Diseña, implementa y evalúa sistemas de reconocimiento de patrones mediante el pipeline completo
-(datos → preprocesamiento → representación/rasgos → modelo → validación → métricas), utilizando fundamentos estadísticos
-y de aprendizaje automático. Desarrolla soluciones reproducibles en **R** para problemas de clasificación, regresión y agrupamiento,
-interpretando resultados con pensamiento crítico, considerando riesgos experimentales (p. ej., *data leakage*), desbalance de clases
-y criterios de desempeño acordes al dominio de aplicación.
+Diseña, implementa y evalúa sistemas de reconocimiento de patrones mediante el pipeline completo (datos → preprocesamiento → representación/rasgos → modelo → validación → métricas), utilizando fundamentos estadísticos y de aprendizaje automático. Desarrolla soluciones reproducibles en **R** para problemas de clasificación, regresión y agrupamiento, interpretando resultados con pensamiento crítico, considerando riesgos experimentales (p. ej., *data leakage*), desbalance de clases y criterios de desempeño acordes al dominio de aplicación.
 
 ### Contribución de la UDA al Perfil de Egreso (sugerida)
 
 Esta Unidad de Aprendizaje incide de manera directa en la formación de la siguiente competencia:
 
-CE?. Diseña y valida modelos de reconocimiento de patrones y aprendizaje automático para resolver problemas de ingeniería y ciencia de datos, con enfoque reproducible y comunicación científica.
+CE. Diseña y valida modelos de reconocimiento de patrones y aprendizaje automático para resolver problemas de ingeniería y ciencia de datos, con enfoque reproducible y comunicación científica.
 
 ### Contextualización
 
-UDA dirigida a estudiantes de **posgrado**, con duración total de **10 semanas** a **4.5 h/semana** (≈ 45 horas).
+UDA dirigida a estudiantes de la **Maestría en Ingeniería Eléctrica (Instrumentación y Sistemas Digitales)**, con duración total de **12 semanas** a **4.5 h/semana** (≈ 45 horas).
 El curso enfatiza el diseño experimental correcto (particiones, *cross-validation*, tuning) y el desarrollo reproducible en R.
 
 ---
@@ -97,10 +93,7 @@ El [contenido](doc/pdf/Temario.pdf) de la Unidad de Aprendizaje es el siguiente:
 
 ## Competencia de la Unidad de Aprendizaje
 
-Diseña, implementa y evalúa sistemas de reconocimiento de patrones mediante el pipeline completo
-(datos → preprocesamiento → representación/rasgos → modelo → validación → métricas), utilizando fundamentos estadísticos
-y de aprendizaje automático en **R**. Interpreta resultados con pensamiento crítico, considerando limitaciones experimentales,
-desbalance de clases y criterios de desempeño acordes al dominio. Comunica hallazgos de forma clara y reproducible.
+Diseña, implementa y evalúa sistemas de reconocimiento de patrones mediante el pipeline completo (datos → preprocesamiento → representación/rasgos → modelo → validación → métricas), utilizando fundamentos estadísticos y de aprendizaje automático en **R**. Interpreta resultados con pensamiento crítico, considerando limitaciones experimentales, desbalance de clases y criterios de desempeño acordes al dominio. Comunica hallazgos de forma clara y reproducible.
 
 ---
 
