@@ -11,7 +11,7 @@
     <img src="/doc/img/escudo-png.png" alt="Logo" width="120" height="120">
   </a>
 
-  <h3 align="center">Reconocimiento de Patrones (UDA - Posgrado)</h3>
+  <h3 align="center">Reconocimiento de Patrones (MIE.VR01.09)</h3>
 
   <p align="center">
     Material del curso: temario, presentaciones, prácticas, código y proyecto final
