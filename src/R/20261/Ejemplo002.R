@@ -15,10 +15,10 @@ lb_a <- unique(datos$anio)
 lb_f <- unique(datos$facultad)
 lb_c <- unique(datos$carrera)
 
-# Función para la suma en base de una selección
-f <- function(vct, sl, vtc_d) smn <- sum(vtc_d[vct==sl])
+# Función para la suma en base de dos caractersiticas seleccionadas
+f <- function(vct1, sl1, vct2, sl2, vtc_d) smn <- sum(vtc_d[vct1==sl1&vct2==sl2])
 # Vectorización de la selección
-vf <- Vectorize(f, vectorize.args = "sl")
+vf <- Vectorize(f, vectorize.args = "sl1")
 
 # Admitidos por anio
 naat <- vf(datos$anio, lb_a, datos$admitidos_total)
