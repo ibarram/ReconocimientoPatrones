@@ -1,6 +1,6 @@
 require(stats)
 # Archivo de la base de datos
-filename = "../../../data/regresion/Datos_1_1.txt"
+filename = "../../../data/regresion/Datos_1_3.txt"
 
 data <- read.table(filename, sep = "", header = FALSE)
 

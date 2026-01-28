@@ -6,7 +6,7 @@ data <- read.table(filename, sep = "", header = FALSE)
 
 x <- as.numeric(data[1,])
 y <- as.numeric(data[2,])
-p <- 2
+p <- 3
 
 r_mS <- function(x, y, p)
 {
