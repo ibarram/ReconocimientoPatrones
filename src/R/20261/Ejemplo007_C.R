@@ -111,7 +111,7 @@ e_R2 <- function(y, yl)
   stopifnot(nrow(yl) == n)
   
   # "Varianza total" escalada como n*var(y) (ver nota arriba)
-  s2y <- n * var(y)
+  s2y <- (n - 1) * var(y)
   
   # SSE por columna: sum( (y - y^)^2 )
   SSE <- colSums((yl - y)^2)

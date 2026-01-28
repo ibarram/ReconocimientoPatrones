@@ -1,11 +1,13 @@
 require(stats)
 # Archivo de la base de datos
-filename = "../../../data/regresion/Datos_1_2.txt"
+filename = "../../../data/regresion/Datos_1_3.txt"
 
 data <- read.table(filename, sep = "", header = FALSE)
 
 x <- as.numeric(data[1,])
 ix <- order(x)
+x <- x[ix]
+y <- y[ix]
 n <- length(x)
 y <- as.numeric(data[2,])
 p <- 15
@@ -75,11 +77,21 @@ p_sel <- min(vp[R2>R2_th])
 a_sel <- a[[p_sel]]
 y_sel <- yl[,p_sel]
 
-R2o <- vr_mSo(x, y, p_sel, x)
-R2o_th <- mean(R2o) + qt(0.995, df = n-1) * sd(R2o)/sqrt(n)
-id_o <- which(R2o>R2o_th)
+i_th <- 50 # p+1:n-p-1
+xi <- x[1:i_th]
+yi <- y[1:i_th]
+xs <- x[i_th:n]
+ys <- y[i_th:n]
+x_th <- x[i_th]
+ai <- vr_mS(xi, yi, vp)
+yli <- vs_mS(ai, xi)
+R2i <- e_R2(yi, yli)
+as <- vr_mS(xs, ys, vp)
+yls <- vs_mS(as, xs)
+R2s <- e_R2(ys, yls)
+
 
 plot(x, y, col = "red", pch = 19)
-lines(x[ix], y_sel[ix], col = "blue", type = "l", lwd = 4)
-points(x[id_o], y[id_o], col = "blue", pch = 1, cex = 2, lwd = 4)
+lines(xi, yli, col = "blue", type = "l", lwd = 4)
+lines(xs, yls, col = "blue", type = "l", lwd = 4)
 grid()
