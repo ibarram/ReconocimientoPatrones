@@ -6,7 +6,7 @@ data <- read.table(filename, sep = "", header = FALSE)
 
 x <- as.numeric(data[1,])
 y <- as.numeric(data[2,])
-p <- 2
+p <- 15
 
 r_mS <- function(x, y, p)
 {
@@ -34,20 +34,30 @@ s_mS <- function(a, x)
 
 e_R2 <- function(y, yl)
 {
-  stopifnot(length(y) == length(yl))
   n <- length(y)
   
-  SSE <- sum((y-yl)^2)
-  s2y <- n*var(y)
-  return(1-SSE/s2y)
+  yl <- as.matrix(yl)
+  stopifnot(nrow(yl) == n)
+  
+  s2y <- n * var(y)
+  SSE <- colSums((yl - y)^2)
+  return(1 - SSE / s2y)
 }
 
-a <- r_mS(x, y, p)
-yl <- s_mS(a, x)
+vr_mS <- Vectorize(r_mS, vectorize.args = "p")
+vs_mS <- Vectorize(s_mS, vectorize.args = "a")
+
+vp <- 1:p
+a <- vr_mS(x, y, vp)
+yl <- vs_mS(a, x)
 R2 <- e_R2(y, yl)
 print(R2)
 
-plot(x, y, col = "red", pch = 19)
-lines(x, yl, col = "blue", type = "p", lwd = 4)
+R2_th <- mean(R2) - qt(0.975, df = p-1) * sd(R2)/sqrt(p)
+p_sel <- min(vp[R2>R2_th])
+print(p_sel)
+
+plot(vp, R2, col = "red", pch = 19, type = "b", lwd = 2)
+points(p_sel, R2[p_sel==vp], col = "blue", pch = 1, cex = 2, lwd = 4)
 grid()
 
