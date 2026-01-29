@@ -5,11 +5,11 @@ filename = "../../../data/regresion/Datos_1_3.txt"
 data <- read.table(filename, sep = "", header = FALSE)
 
 x <- as.numeric(data[1,])
+y <- as.numeric(data[2,])
 ix <- order(x)
 x <- x[ix]
 y <- y[ix]
 n <- length(x)
-y <- as.numeric(data[2,])
 p <- 15
 
 r_mS <- function(x, y, p)
@@ -76,22 +76,38 @@ p_sel <- min(vp[R2>R2_th])
 
 a_sel <- a[[p_sel]]
 y_sel <- yl[,p_sel]
+R2_sel <- R2[p_sel]
 
 i_th <- 50 # p+1:n-p-1
+
 xi <- x[1:i_th]
 yi <- y[1:i_th]
+
 xs <- x[i_th:n]
 ys <- y[i_th:n]
+
 x_th <- x[i_th]
+
 ai <- vr_mS(xi, yi, vp)
 yli <- vs_mS(ai, xi)
 R2i <- e_R2(yi, yli)
+R2i_th <- mean(R2i) - qt(0.975, df = p-1) * sd(R2i)/sqrt(p)
+pi_sel <- min(vp[R2i>R2i_th])
+ai_sel <- ai[[pi_sel]]
+yi_sel <- yli[,pi_sel]
+R2i_sel <- R2i[pi_sel]
+
 as <- vr_mS(xs, ys, vp)
 yls <- vs_mS(as, xs)
 R2s <- e_R2(ys, yls)
-
+R2s_th <- mean(R2s) - qt(0.975, df = p-1) * sd(R2s)/sqrt(p)
+ps_sel <- min(vp[R2s>R2s_th])
+as_sel <- as[[ps_sel]]
+ys_sel <- yls[,ps_sel]
+R2s_sel <- R2s[ps_sel]
 
 plot(x, y, col = "red", pch = 19)
-lines(xi, yli, col = "blue", type = "l", lwd = 4)
-lines(xs, yls, col = "blue", type = "l", lwd = 4)
+lines(x, y_sel, col = "blue", type = "l", lwd = 4)
+lines(xi, yi_sel, col = "green", type = "l", lwd = 4)
+lines(xs, ys_sel, col = "green", type = "l", lwd = 4)
 grid()
