@@ -101,7 +101,6 @@ r_mSth <- function(x, y, p, i_th)
   pi_sel <- min(vp[R2i>R2i_th])
   ai_sel <- ai[[pi_sel]]
   yi_sel <- yli[,pi_sel]
-  R2i_sel <- R2i[pi_sel]
   
   as <- vr_mS(xs, ys, vp)
   yls <- vs_mS(as, xs)
@@ -110,10 +109,10 @@ r_mSth <- function(x, y, p, i_th)
   ps_sel <- min(vp[R2s>R2s_th])
   as_sel <- as[[ps_sel]]
   ys_sel <- yls[,ps_sel]
-  R2s_sel <- R2s[ps_sel]
   
   yt <- s_mSt(ai_sel, as_sel, x_th, x)
-  return(e_R2(y, yt))
+  R2 <- e_R2(y, yt)
+  return(c(pi_sel, ai_sel, ps_sel, as_sel, R2))
 }
 
 vr_mS <- Vectorize(r_mS, vectorize.args = "p")
@@ -136,9 +135,16 @@ R2_sel <- R2[p_sel]
 
 # Modelo en partes
 i_th <- (p+1):(n-p-1)
-R2_th <- vr_mSth(x, y, p, i_th)
-i_sel <- which(R2_th==max(R2_th))+p
+md_th <- vr_mSth(x, y, p, i_th)
+R2_th <- sapply(md_th, function(md_th) tail(md_th, 1))
+i_sel <- which(R2_th==max(R2_th))
+x_th <- x[i_sel+p]
+md_sel <- md_th[[i_sel]]
+ai_sel <- md_sel[2:(md_sel[1]+2)]
+as_sel <- md_sel[md_sel[1]+(0:md_sel[(md_sel[1]+3)])+4]
+y_th <- s_mSt(ai_sel, as_sel, x_th, x)
 
-plot(x[i_th], R2_th, col = "red", pch = 19)
-points(x[i_sel], R2_th[i_sel-p], col = "blue", pch = 1, cex = 2, lwd = 4)
+plot(x, y, col = "red", pch = 19)
+lines(x, y_sel, col = "blue", type = "l", lwd = 4)
+lines(x, y_th, col = "green", type = "l", lwd = 4)
 grid()

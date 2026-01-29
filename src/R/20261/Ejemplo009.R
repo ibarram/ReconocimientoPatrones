@@ -101,7 +101,7 @@ y_sel <- yl[,p_sel]
 R2_sel <- R2[p_sel]
 
 # Modelo en partes
-i_th <- 50 # p+1:n-p-1
+i_th <- 30 # p+1:n-p-1
 
 xi <- x[1:i_th]
 yi <- y[1:i_th]
