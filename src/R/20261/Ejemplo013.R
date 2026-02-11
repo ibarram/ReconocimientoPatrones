@@ -27,7 +27,7 @@ cda_v <- Vectorize(cda, vectorize.args = "n_frame")
 path_bd <- "../../../data/a-pressure-map-dataset-for-in-bed-posture-classification-1.0.0/experiment-i/"
 file_info <- "subject-info-i.csv"
 
-index_pos1 <- 3;
+index_pos1 <- 1;
 index_pos2 <- 2;
 index_pac <- 1;
 v_max <- 1000;
